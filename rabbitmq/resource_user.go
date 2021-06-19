@@ -57,6 +57,7 @@ func CreateUser(d *schema.ResourceData, meta interface{}) error {
 	resp, err := rmqc.PutUser(name, userSettings)
 	log.Printf("[DEBUG] RabbitMQ: user creation response: %#v", resp)
 	if err != nil {
+		log.Printf("[DEBUG] RabbitMQ: user creation error: %v", err)
 		return err
 	}
 
